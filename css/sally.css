@@ -5,6 +5,7 @@ dd a {font-weight: 700;}
 
 div.bad {background: #f9d1d7; font-size: 200%; font-weight: 700; border-color: #e21a35;}
 
+span.bad {color: #e21a35; font-weight: 700; }
 
 
 .button i {padding-right: 1px;}
