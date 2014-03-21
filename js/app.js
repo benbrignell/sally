@@ -72,8 +72,14 @@ var website = io.controller("Website", ["$scope", "safeApply", "importicleOauthS
 
 	$scope.recommendedCreditCards = [];
 
-	$scope.creditCards = function get_best_creditcard_deal(dataset) {
+	$scope.creditCards = function(dataset) {
 		$scope.recommendedCreditCards = [];
+		for (var i = 0; i < 5; i++) {
+			dataset = $scope.getCreditCardData(dataset);
+		}
+	}
+
+	$scope.getCreditCardData = function (dataset) {
 		var banks = [];
 		var card_names = [];
 		var aprs = [];
@@ -107,12 +113,13 @@ var website = io.controller("Website", ["$scope", "safeApply", "importicleOauthS
 
 		var min_apr = Math.min.apply(null,array_aprs)
 
-		var best_bank; var best_card;
+		var best_bank; var best_card; var best_number;
 		for (var w = 0; w < array_aprs.length; w++) {
 			k = array_aprs[w]
 			if (k == min_apr) {
 				best_bank = array_banks[w];
 				best_card = array_cards[w];
+				best_number = w;
 			}
 		}
 
@@ -122,7 +129,14 @@ var website = io.controller("Website", ["$scope", "safeApply", "importicleOauthS
 			"apr": min_apr,
 			"purchase": max_purchase_free_period
 		});
+		var i = dataset.data.length;
+		while (i--) {
+			if (dataset.data[i]["bank_name"] == best_bank && dataset.data[i]["card_name"] == best_card) {
+				dataset.data.splice(i, 1);
+			}
+		}
 		safeApply($scope);
+		return dataset;
 	}
 
 	$scope.queryProgress = 0;
