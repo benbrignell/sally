@@ -236,6 +236,47 @@ var website = io.controller("Website", ["$scope", "safeApply", "importicleOauthS
 		}
 	});
 
+	$scope.bestCurrentAccount = function(dataset) {
+		var url_banks = [];
+		var account_names = [];
+		var interest_rate_aers = [];
+		overdraft_rate_ears = [];
+		for (var x in dataset.data) {
+			url_banks.push(dataset.data[x]["_pageUrl"]);
+			account_names.push(dataset.data[x]["product_name"]);
+			interest_rate_aers.push(parseFloat(dataset.data[x]["interest_rate_aer"]));
+			overdraft_rate_ears.push(parseFloat(dataset.data[x]["overdraft_rate_ear"]));
+		}
+		var max_interest = Math.max.apply(null,interest_rate_aers);
+		// for sorting?
+		//var sorted_interests = interest_rate_aers.sort(function(a,b){return a - b});
+		var array_banks=[];
+		var array_accounts=[];
+		var array_overdraft=[];
+		for (var y = 0; y < interest_rate_aers.length; y++){
+		z=interest_rate_aers[y]
+			if (z==max_interest) {
+				array_banks.push(url_banks[y]);
+				array_accounts.push(account_names[y]);
+				array_overdraft.push(overdraft_rate_ears[y]);
+			}
+		}
+		var min_overdraft = Math.min.apply(null,array_overdraft);
+		// for sorting?
+		//var sorted_overdraft = array_overdraft.sort(function(a,b){return a - b});
+		for (var w = 0; w < array_overdraft.length; w++){
+			k = array_overdraft[w];
+			if (k==min_overdraft) {
+				var best_url_bank=array_banks[w];
+				var best_account=array_accounts[w];
+			}
+		}
+		var best_url_bank_=best_url_bank.substring(0,(best_url_bank.length-1));
+		var n = best_url_bank_.lastIndexOf("/");
+		var best_bank=best_url_bank.substring((n+1),(best_url_bank.length-1));
+		console.log(min_overdraft,max_interest,best_bank,best_account);
+	}
+
 }]);
 
 var login = io.controller("Login", ["$scope", "safeApply", "importicleOauthState", "windowUtils",
