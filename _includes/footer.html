@@ -3,18 +3,26 @@
     <script src="{{ site.tribble }}js/tribble.js"></script>
     <script src="{{ site.baseurl }}js/config/config.js"></script>    
     <script src="{{ site.baseurl }}js/app.js"></script>    
-    <script src="{{ site.baseurl }}js/foundation.min.js"></script>  
-    <script src="{{ site.baseurl }}js/foundation.slider.js"></script>  
+    <script src="{{ site.baseurl }}js/foundation.min.js"></script>   
     <script src="{{ site.baseurl }}js/foundation.dropdown.js"></script>     
+    <script src="{{ site.baseurl }}js/simple-slider.js"></script> 
 
-
-<script  type="text/javascript">
-	$(document).foundation({
-	  slider: {
-	    on_change: function(){
-	      // do something when the value changes
-	    }
-	  }
-	});
+<script type="text/javascript">
+  $(document).foundation();
 </script>
+
+  <script>
+  $("[data-slider]")
+    .each(function () {
+      var input = $(this);
+      $("<span>")
+        .addClass("output")
+        .insertAfter($(this));
+    })
+    .bind("slider:ready slider:changed", function (event, data) {
+      $(this)
+        .nextAll(".output:first")
+          .html(data.value.toFixed(3));
+    });
+  </script>
 
