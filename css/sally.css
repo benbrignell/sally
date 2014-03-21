@@ -490,19 +490,23 @@ ul.free li.title {
 	background:#4caee2;
 }
 
+/*
 ul.free li.bullet-item:last-child {
 	background:#b7dff3;
 }
+*/
 
 ul.free li.bullet-item {
 	background:#dbeff9;
 	border-bottom:1px solid #b7dff3;
 }
 
+/*
 ul.free li.bullet-item:last-child {
 	font-weight:700;
 	font-size:110%;
 }
+*/
 
 /**** pro tier ****/
 ul.pro li.title {
