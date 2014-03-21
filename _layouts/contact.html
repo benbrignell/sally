@@ -1,0 +1,47 @@
+{% include header.html %} 
+{% include topbar.html %}
+
+<body ng-controller="Website" id="contact">
+   <header>
+	   <h1 class="text-center">Get in touch</h1>
+
+   </header> 
+  <section>  
+    <div class="row">
+        <div class="large-6 medium-6 columns">
+            <h3>Contact us</h3>
+
+            <form data-abide="">
+                <div class="name-field">
+                    <label>Your name <small>required</small> <input type="text" required="" pattern="[a-zA-Z]+"></label> <small class="error">We need your name so we can reply to you.</small>
+                </div>
+
+                <div class="email-field">
+                    <label>Email <small>required</small> <input type="email" required=""></label> <small class="error">Please provide us a real email address, ta!</small>
+                </div><button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="large-6 medium-6 columns text-center">
+            <h3>Get in touch</h3>
+				<img src="{{ site.baseurl }}img/contact.svg" alt="London and San Francisco"  />
+            <p>We're based in Hoxton, London and San Fransico.</p>
+
+            <p>
+            	<i class="fa fa-twitter"></i>
+            	<a href="http://twitter.com/importio">
+            		Follow us on Twitter
+            	</a>
+            </p>
+            
+            <p> 
+            	<i class="fa fa-facebook"></i>
+            	<a href="http://facebooking.com/importio">
+            		Say hi on Facebook
+            	</a>
+            </p>
+        </div>
+    </div>
+  </section> 
+{% include footer.html %}
+

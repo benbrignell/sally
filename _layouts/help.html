@@ -1,0 +1,123 @@
+{% include header.html %} 
+{% include topbar.html %}
+<body ng-controller="Website" id="help">
+    <header>
+        <div class="row">
+            <div class="large-4 columns">
+                <h3>Getting started</h3>
+
+                <dl class="help" data-tab="">
+                    <dd><a href="#panel1a" class="stop">Extractors, Crawlers &amp; Connectors</a></dd>
+
+                    <dd><a href="#panel2a" class="stop">Build your first API!</a></dd>
+
+                    <dd><a href="#panel3a" class="stop">How can you use your data?</a></dd>
+                </dl>
+                
+                
+                {% include appDownload.html %}
+                
+
+            </div>
+
+            <div class="large-8 columns">
+                <div class="tabs-content">
+                    <div class="content active" id="panel1a">
+                        <div class="videoWrapper">
+    						<div id="player1"></div>
+						</div>
+
+                    </div>
+
+                    <div class="content" id="panel2a">
+                        <div class="videoWrapper">
+    						<div id="player2"></div>
+						</div>
+                    </div>
+
+                    <div class="content" id="panel3a">
+                        <div class="videoWrapper">
+    						<div id="player3"></div>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="row">
+        <div class="large-4 columns">
+            <h4 class="text-center"><i class="fa fa-medkit"></i>Support</h4>
+            <hr>
+
+            <h5>Want to learn more?</h5>
+
+            <p>Visit our extensive Knowledge Base including in-depth tutorials, FAQs and more.</p>
+
+            <ul>
+                <li><a href="http://support.import.io/knowledgebase/topics/41446-the-data-browser-">The Data Browser</a></li>
+
+                <li><a href="http://support.import.io/knowledgebase/topics/41518-browser-faqs">Browser FAQs</a></li>
+
+                <li><a href="http://support.import.io/knowledgebase/topics/44280-the-data-factory">The Data Factory</a></li>
+
+                <li><a href="http://support.import.io/knowledgebase/topics/44456-data-factory-faqs">Data Factory FAQs</a></li>
+            </ul>
+        </div>
+
+        <div class="large-8 columns">
+            <div class="row">
+                <div class="large-6 columns">
+                    <h4 class="text-center"><i class="fa fa-users"></i>Community</h4>
+                    <hr>
+
+                    <ul>
+                        <li><a href="http://support.import.io/forums/199278-ideas-forum">User Ideas Forum</a></li>
+
+                        <li><a href="#">Developer Forum (NEW!)</a></li>
+
+                        <li><a href="http://support.import.io/forums/238171-support-forum">Support Forum</a></li>
+                    </ul>
+                </div>
+
+                <div class="large-6 columns">
+                    <h4 class="text-center"><i class="fa fa-code"></i>Documentation</h4>
+                    <hr>
+
+                    <h5>Learn more about our APIs</h5>
+
+                    <ul>
+                        <li><a href="#">docs.import.io</a></li>
+
+                        <li><a href="#">Comet D documentation</a></li>
+
+                        <li><a href="#">docs.import.io</a></li>
+                    </ul>
+                </div>
+
+                <div class="row">
+                    <div class="large-12 columns panel callout radius">
+                        <div class="row">
+                            <div class="large-6 columns">
+                                <h4>We &lt;3 feedback :)</h4>
+
+                                <p>Got a problem or just want to get in touch? <strong>Email us at:</strong> <a href="#">support@import.io</a></p>
+                            </div>
+
+                            <div class="large-6 columns owenhelp"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/row-->
+    <script type="text/javascript">
+$(document).foundation({
+    tab: {
+      callback : function (tab) {
+        console.log(tab);
+      }
+    }
+    });
+    </script>
+{% include footer.html %}

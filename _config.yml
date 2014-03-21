@@ -1,0 +1,6 @@
+name: import•io
+markdown: redcarpet
+pygments: true
+baseurl: / #https://googledrive.com/host/0B-ITZv-IqkPQTVNmOE8wQkdwRnM/
+url: http://localhost:4000
+tribble: //d3sgt82prjfpwv.cloudfront.net/tribble/196/

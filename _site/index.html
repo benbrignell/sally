@@ -1,0 +1,371 @@
+<!doctype html>
+<html class="no-js" lang="en" ng-app="io">
+  <head>
+    <link href='//fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:300,700' rel='stylesheet' type='text/css'>  <!-- pre-mix-in -->
+ 
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">    <meta charset="utf-8" /> <!-- pre-mix-in -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>  import•io |  import•io </title>
+    <link rel="stylesheet" href="//d3sgt82prjfpwv.cloudfront.net/tribble/196/css/tribble.css">
+    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/css/scratch.css" />
+    <script src="//d3sgt82prjfpwv.cloudfront.net/tribble/196/js/tribble-head.js"></script>
+    <script src="/js/vendor/modernizr.js"></script>
+ 
+  </head> 
+<div class="fixed">
+	<nav class="top-bar" data-topbar>
+	  <ul class="title-area">
+	    <li class="name">
+	      <h1><a href="/"><img src="/img/importio.svg" class="logo"></a></h1>
+	    </li>
+	    <li class="toggle-topbar menu-icon"><a href="#"></a></li>
+	  </ul>
+	
+	  <section class="top-bar-section">
+	    <ul class="right">
+		        <li><a href="/about/index.html">About</a></li> 
+      <li><a href="/features/index.html">Features</a></li>
+      <li><a href="/pricing/index.html">Pricing</a></li>
+      <li><a href="/help/index.html">Help</a></li>
+	  <li><a href="http://blog.import.io">Blog</a></li>       
+	  <li ng-hide="current()">
+	  	<a href="/data/" target="_blank" class="button radius login-button">
+	  		<span ng-show="initialised()" style="display: none">Sign in</span>
+	  		<i class="icon-spin icon-spinner" ng-hide="initialised()"></i>
+	  	</a>
+	  </li>
+	  <li style="display: none" ng-show="current()"><a href="/data/mine" target="_blank" class="button radius login-button">My Data</a></li>
+	  
+	    </ul>
+	 </section>
+	</nav>
+</div>
+<body ng-controller="Website" id="home">    
+
+    <section id="owenHome">
+        <div class="row">
+            <div class="large-12 columns">
+                <h1 class="hero">Turn the web into data, today</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="medium-6 large-5 columns">
+                <h4>Transform any website into a table of data or an API in minutes without even writing any code.</h4><a href="/download" class="large button hide-for-small primary">Download the App <i class="fa fa-cloud-download"></i></a> <a href="http://import.io/data/" class="small button show-for-small primary">Sign up</a>
+                
+                <div class="platforms">
+	                	Windows <i class="fa fa-windows"></i> OSX <i class="fa fa-apple"></i> Linux<i class="fa fa-linux"></i>
+	                </div>
+	                
+	                
+            </div>
+
+            <div class="medium-6 large-7 columns">
+<!--
+                <dl class="bubble features show-for-small">
+                    <dd>import•io is about much more than just Scraping Web Pages.</dd>
+
+                    <dd>Extract data from any site in minutes.</dd>
+
+                    <dd>Create an API the visual way - no programming.</dd>
+
+                    <dd>Download data in Excel, CSV, HTML or JSON.</dd>
+
+                    <dd>What are Extractors, Crawlers and Connectors?</dd>
+                </dl>
+-->
+
+				
+            </div>
+        </div>
+
+        <div class="preview hide-for-small hide-for-medium">
+            <div class="videoWrapper">
+    				<div id="player11"></div> <!-- disabled for demoing rest of site -->
+				</div>
+    </section>
+
+    <section id="commonQuestions">
+        <div class="row">
+            <h3 class="text-center">Common questions</h3>
+
+            <div class="large-3 columns">
+            	
+                <h5 class="text-center"><i class="fa fa-question-circle"></i> How does it work?</h5>
+				<hr />
+                <p>Use our point and click interface to define the data on the page and our algorithms will create an API for you - no coding!</p><a href="/features">Get started</a>
+            </div>
+
+            <div class="large-3 columns">
+            	           
+                <h5 class="text-center"><i class="fa fa-money"></i> How much does it cost?</h5>
+				<hr />
+                <p>The import·io app is completely free - build as many data sources as you want and refresh the data as often as you like.</p><a href="/pricing">More on pricing plans</a>
+            </div>
+
+            <div class="large-3 columns">
+            	           
+                <h5 class="text-center"><i class="fa fa-question-circle"></i> How can I use data?</h5>
+				<hr />
+                <p>Data you collect using our app can be used to create visualizations, inform business decisions, populate databases, power apps and much more.</p><a href="#">How can you use data?</a>
+            </div>
+
+            <div class="large-3 columns">
+            	           
+                <h5 class="text-center"><i class="fa fa-medkit"></i>  What if I need help?</h5>
+                <hr />
+
+                <p>We’re here to assist you! Contact us with any questions or feedback please don’t hesitate to get in touch.</p><a href="/help">How can we help you?</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="row">
+            <div class="large-12 columns text-center">
+                <h3>What people are saying</h3>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row ">
+            <div class="large-4 columns">
+                <p><img src="/img/t-johnforeman.jpg" alt="t-johnforeman" width="80" height="80" class="quoth"><strong>John Foreman</strong>,<br>
+                Mailchimp @John4man</p>
+
+                <blockquote class="bubble pointer">
+                    I've been using <a href="http://twitter.com/importio" target="_blank">@importio</a> to scrape data for the book. I love it!
+                </blockquote>
+            </div>
+
+            <div class="large-4 columns">
+                <p><img src="/img/t-jonikorpi.png" alt="t-johnforeman" width="80" height="80" class="quoth"><strong>Joni Korpi</strong>,<br>
+                Kisko Labs @jonikorpi</p>
+
+                <blockquote class="bubble pointer">
+                    For what it's worth, I'm guessing the stuff you guys are building is exactly what the internet needs right now.
+                </blockquote>
+            </div>
+
+            <div class="large-4 columns">
+                <p><img src="/img/t-kdnuggets.jpg" alt="t-johnforeman" width="80" height="80" class="quoth"><strong>Gregory Piatetsky</strong>,<br>
+                @kdnuggets</p>
+
+                <blockquote class="bubble pointer">
+                    import.io addresses the elephant in the technology industry's room.
+                </blockquote>
+            </div>
+        </div>
+
+        <div class="row panel callout">
+            <div class="large-4 columns">
+                <h3>We love hearing <br />from you!</h3>
+            </div>
+
+            <div class="large-8 columns">
+                <p>If you've good things to say we'd love to hear from you! Let us know what you've been doing or just say hi. We're very needy like that.</p>
+                
+                
+                <a href="/contact" class="small button">Send feedback</a>
+                <a href="http://twitter.com/importio">Follow us on Twitter <i class="fa fa-twitter"></i></a>
+                <a href="http://facebooking.com/importio">Say hi on Facebook <i class="fa fa-facebook"></i></a>
+                
+            </div>
+        </div>
+    </section>
+
+
+
+    <section>
+        <div class="row text-center">
+
+            <h3>Some subtle name dropping</h3>
+
+            <div class="large-12 columns">
+                <ul class="small-block-grid-2 large-block-grid-8">
+                    <li><img src="/img/temp/name1.png" alt="name1"></li>
+
+                    <li><img src="/img/temp/name2.png" alt="name2"></li>
+
+                    <li><img src="/img/temp/name3.png" alt="name3"></li>
+
+                    <li><img src="/img/temp/name4.png" alt="name4"></li>
+
+                    <li><img src="/img/temp/name5.png" alt="name5"></li>
+
+                    <li><img src="/img/temp/name6.png" alt="name6"></li>
+
+                    <li><img src="/img/temp/name3.png" alt="name3"></li>
+
+                    <li><img src="/img/temp/name4.png" alt="name4"></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="row text-center">
+            <hr>
+
+            <h3>Awards that we've won</h3>
+
+            <div class="large-12 columns">
+                <ul class="small-block-grid-3 medium-block-grid-6 large-block-grid-6">
+                    <li><img src="/img/award-adience-choice-2012.png" alt="award-adience-choice-2012"></li>
+
+                    <li><img src="/img/award-adience-choice-2013.png" alt="award-adience-choice-2013"></li>
+
+                    <li><img src="/img/award-best-startup-2012.png" alt="award-best-startup-2012"></li>
+
+                    <li><img src="/img/award-best-startup-2013.png" alt="award-best-startup-2013"></li>
+
+                    <li><img src="/img/award-best-startup-london-2012.png" alt="award-best-startup-london-2012"></li>
+
+                    <li><img src="/img/award-best-startup-showcase-2013.png" alt="award-best-startup-showcase-2013" width="251" height="126"></li>
+                </ul>
+                
+                <hr />
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="row text-center">
+            <div class="large-12 columns">
+                <h1>How data is changing the world</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="medium-4 large-4 columns">
+                <img src="/img/temp/temp1.png" alt="temp1" class="th">
+
+                <h3>Data is feeding the hungry</h3>
+
+                <p>Using live data from local markets and newspapers, Oxfam can start to predict when and where food shortages are likely to happen; allowing them to provide faster, more targeted aid to struggling villages in Africa.</p><a href="/how-data-is-changing-the-world/oxfam.html">Read more…</a>
+            </div>
+
+            <div class="medium-4 large-4 columns">
+                <img src="/img/temp/stock-photo-18030670-elementary-kids.jpg" alt="stock-photo-18030670-elementary-kids" class="th">
+
+                <h3>Data is changing education</h3>
+
+                <p>By aggregating data from past theses and course information, Project Lever can help match university students with the best advisors to optimize faculty investment and improve the quality of research papers.</p><a href="/how-data-is-changing-the-world/oxfam.html">Read more…</a>
+            </div>
+
+            <div class="medium-4 large-4 columns">
+                <img src="/img/temp/journalism-temp.png" alt="journalism-temp" class="th">
+
+                <h3>Data is changing journalism</h3>
+
+                <p>Collecting data from around the web can help journalists to identify newsworthy trends, break stories and engage in more accurate reporting practices.</p><a href="/how-data-is-changing-the-world/oxfam.html">Read more…</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="enterprise">
+        <div class="row">
+            <div class="large-4 columns">
+                <h3>Data for Enterprise</h3><a href="#" class="primary button">Find out more</a>
+            </div>
+
+            <div class="large-8 columns"><img src="/img/enterprise.svg"></div>
+        </div>
+    </section>
+<section id="footer">
+        <div class="row">
+            <div class="large-3 medium-3 columns">
+                <h4>About import•io</h4>
+
+                <ul>
+                    <li><a href="/about/#team">The Team</a></li>
+                    <li><a href="http://blog.import.io">Blog</a></li>
+                    <li><a href="/contact">Contact</a></li>                    
+                </ul>
+            </div>
+
+            <div class="large-3 medium-3 columns">
+                <h4>Our product</h4>
+
+                <ul class="home-social">
+                    <li><a href="/download">Download</a></li> 
+                                   
+                    <li><a href="/features">Features</a></li>
+
+                    <li><a href="/pricing">Pricing</a></li>     
+                    
+                    <li><a href="/support">Support</a></li>
+                    
+                    <li><a href="/enterprise">Enterprise</a></li>                    
+                    
+                </ul>
+            </div>
+
+            <div class="large-3 medium-3 columns">
+                <h4>Help</h4>
+
+                <ul class="home-social">
+                    <li><a href="/help">Get Started</a></li>
+
+                    <li><a href="/support">Support</a></li>
+
+                    <li><a href="/docs">Docs</a></li>
+
+                </ul>
+            </div>
+
+            <div class="large-3 medium-3 columns">
+                <h4>Connect</h4>
+
+                <ul class="home-social">
+                    <li><a href="http://twitter.com/importio" target="_blank">Twitter</a></li>
+
+                    <li><a href="http://facebook.com/importio" target="_blank">Facebook</a></li>
+
+                    <li><a href="/contact">Say hi!</a></li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <p class="copyright">&copy; import.io</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="//d3sgt82prjfpwv.cloudfront.net/tribble/196/js/tribble.js"></script>
+    <script src="/js/config/config.js"></script>    
+    <script src="/js/app.js"></script>    
+    <script src="/js/foundation.min.js"></script>
+
+<script type="text/javascript">
+  $(document).foundation();
+</script>
+    
+ 
+
+ <!-- HOME // Video async autoplay -->
+    <script>
+      // load  api
+      var tag = document.createElement('script');
+      tag.src = "//www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // make player array
+      var players = new Array();
+
+      function onYouTubeIframeAPIReady() {
+        players[0] = new YT.Player('player1', {
+          height: '390',
+          width: '640',
+          videoId: 'MudT3viHABA"'
+        });
+      }
+    </script>
+
+ 
+
