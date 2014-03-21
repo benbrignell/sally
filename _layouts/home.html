@@ -1,30 +1,146 @@
 {% include header.html %} 
-{% include topbar.html %}
 <body ng-controller="Website" id="home">    
+{% include topbar.html %}
 
-    <section id="signIn" class="text-center" ng-show="page == 'login'">
-        <div class="row">
-            <div class="large-12 columns">
-                <h1>$ally Bank</h1>
-                
-                <a class="button" href="" ng-click="page = 'link'">Sign in <i class="fa fa-smile-o"></i> </a>
-                <span id="loginWithPaypal"></span>
-            </div>
-        </div>
-    </section>
-    
-    <section id="linkAccounts" ng-show="page == 'link'">
+	<section id="signIn" class="text-center" ng-show="page == 'login'">
 		<div class="row">
 			<div class="large-12 columns">
-				Add accounts
+				<h1>$ally Bank</h1>
+				<span id="loginWithPaypal"></span>
+			</div>
+		</div>
+	</section>
+
+	<section id="linkAccounts" ng-show="page == 'link'">
+		<div class="row">
+			<div class="large-12 columns">
+			Add accounts
 			</div>
 		</div>    
-    </section>  
-      
-    <section id="listAccounts" ng-show="page == 'list'">
+	</section>  
+
+	<section id="listAccounts" ng-show="page == 'list'">
 		<div class="row">
-			<div class="large-12 columns">
-				List accounts <br> sdfdsf
+			<div class="large-4 columns">
+				<h2>My accounts <i class="fa fa-user"></i></h2>
+			</div>
+			<div class="large-8 columns">
+				<dl class="accordion" data-accordion>
+					<dd>
+						<a href="#panel1">Current accounts <i class="fa fa-money"></i></a> 
+						<div id="panel1" class="content active">
+							<div class="panel callout text-center">
+								<h3 class="text-center">Total balance</h3>
+								£2,397
+							</div>
+							<table width="100%">
+								<thead>
+									<tr>
+										<th>Bank</th>
+										<th>Interest rate</th>
+										<th>Balance now</th>
+										<th>Balance in 6 months</th>
+										<th>&nbsp;</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Halifax</td>
+										<td>3%</td>
+										<td><strong>£300</strong></td>
+										<td><span class="bad">£320</span></td>
+									</tr>
+									<tr>
+										<td>Barclays</td>
+										<td>0.4%</td>
+										<td><strong>£634</strong></td>
+										<td><span class="bad">£320</span></td>
+									</tr>                           
+									<tr>
+										<td>HSBC</td>
+										<td>2%</td>
+										<td><strong>£0</strong></td>
+										<td><span class="bad">£320</span></td>
+									</tr>
+								</tbody>
+							</table> 
+						</div>
+					</dd>
+					<dd>
+						<a href="#panel2">Credit cards <i class="fa fa-credit-card"></i></a>
+						<div id="panel2" class="content">
+							<div class="panel bad text-center">
+								<h3 class="text-center">Total balance</h3>
+								-£4,032
+							</div>
+						<table width="100%">
+							<thead>
+								<tr>
+									<th>Bank</th>
+									<th>Interest rate</th>
+									<th>Balance</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Halifax</td>
+									<td>3%</td>
+									<td><strong>£300</strong></td>
+								</tr>
+								<tr>
+									<td>Barclays</td>
+									<td>0.4%</td>
+									<td><strong>£634</strong></td>
+								</tr>                           
+								<tr>
+									<td>HSBC</td>
+									<td>2%</td>
+									<td><strong>£0</strong></td>
+								</tr>                            
+							</tbody>
+							</table> 
+						</div>
+					</dd>
+					<dd>
+						<a href="#panel3">Savings <i class="fa fa-money"></i></a>
+						<div id="panel3" class="content">
+							<h3 class="text-center">Total balance</h3>
+							<h4 class="panel callout text-center">£2,397</h4>
+							<table width="100%">
+								<thead>
+									<tr>
+										<th>Bank</th>
+										<th>Interest rate</th>
+										<th>Balance</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Halifax</td>
+										<td>3%</td>
+										<td><strong>£300</strong></td>
+									</tr>
+									<tr>
+										<td>Barclays</td>
+										<td>0.4%</td>
+										<td><strong>£634</strong></td>
+									</tr>                           
+									<tr>
+										<td>HSBC</td>
+										<td>2%</td>
+										<td><strong>£0</strong></td>
+									</tr>                            
+								</tbody>
+							</table> 
+						</div>
+					</dd>
+					<dd>
+						<a href="#panel4">Mortgage <i class="fa fa-home"></i></a>
+						<div id="panel4" class="content">
+							Panel 3. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						</div>
+					</dd>  
+				</dl>
 			</div>
 		</div>    
     </section> 
