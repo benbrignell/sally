@@ -2,7 +2,7 @@
 {% include topbar.html %}
 <body ng-controller="Website" id="home">    
 
-    <section id"signIn" class="text-center">
+    <section id="signIn" class="text-center" ng-show="page == 'login'">
         <div class="row">
             <div class="large-12 columns">
                 <h1>Sally Bank</h1>
@@ -12,12 +12,12 @@
         </div>
     </section>
     
-    <section id="linkAccounts">
+    <section id="linkAccounts" ng-show="page == 'link">
 		<div class="row">
 			<div class="large-12 columns">
 				Add accounts
 			</div>
 		</div>    
-    </section>    
+    </section>
 
 {% include footer.html %}
