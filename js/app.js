@@ -176,7 +176,7 @@ var website = io.controller("Website", ["$scope", "safeApply", "importicleOauthS
 		return Object.keys($scope.currentAccounts).length;
 	}
 
-	$scope.getCurrentAccounts = function() {
+	$scope.getCurrentAccounts = function(cb) {
 		$scope.getCurrentAccountsLoading = true;
 		$scope.currentAccounts = {};
 		$scope.currentAccount = false;
@@ -215,10 +215,13 @@ var website = io.controller("Website", ["$scope", "safeApply", "importicleOauthS
 						}
 					}
 				});
-			})(prefix + suffix.replace(/ /g, "-").toLowerCase() + "/", suffix));
+			})(prefix + suffix.toLowerCase().replace(/ /g, "-") + "/", suffix));
 		});
 		$.when.apply(null, futures).done(function() {
 			$scope.getCurrentAccountsLoading = false;
+			if (cb) {
+				cb(Array.prototype.slice.call(arguments, 0));
+			}
 			safeApply($scope);
 		});
 	}
@@ -236,6 +239,8 @@ var website = io.controller("Website", ["$scope", "safeApply", "importicleOauthS
 		}
 	});
 
+	$scope.bestCurrentAccounts = [];
+
 	$scope.bestCurrentAccount = function(dataset) {
 		var url_banks = [];
 		var account_names = [];
@@ -244,7 +249,11 @@ var website = io.controller("Website", ["$scope", "safeApply", "importicleOauthS
 		for (var x in dataset.data) {
 			url_banks.push(dataset.data[x]["_pageUrl"]);
 			account_names.push(dataset.data[x]["product_name"]);
-			interest_rate_aers.push(parseFloat(dataset.data[x]["interest_rate_aer"]));
+			if (dataset.data[x].hasOwnProperty("interest_rate_aer")) {
+				interest_rate_aers.push(parseFloat(dataset.data[x]["interest_rate_aer"]));
+			} else {
+				interest_rate_aers.push(0);
+			}
 			overdraft_rate_ears.push(parseFloat(dataset.data[x]["overdraft_rate_ear"]));
 		}
 		var max_interest = Math.max.apply(null,interest_rate_aers);
@@ -264,17 +273,43 @@ var website = io.controller("Website", ["$scope", "safeApply", "importicleOauthS
 		var min_overdraft = Math.min.apply(null,array_overdraft);
 		// for sorting?
 		//var sorted_overdraft = array_overdraft.sort(function(a,b){return a - b});
+		var best_url_bank; var best_account;
 		for (var w = 0; w < array_overdraft.length; w++){
 			k = array_overdraft[w];
 			if (k==min_overdraft) {
-				var best_url_bank=array_banks[w];
-				var best_account=array_accounts[w];
+				best_url_bank=array_banks[w];
+				best_account=array_accounts[w];
 			}
 		}
 		var best_url_bank_=best_url_bank.substring(0,(best_url_bank.length-1));
 		var n = best_url_bank_.lastIndexOf("/");
 		var best_bank=best_url_bank.substring((n+1),(best_url_bank.length-1));
-		console.log(min_overdraft,max_interest,best_bank,best_account);
+		$scope.bestCurrentAccounts.push({
+			"overdraft": min_overdraft,
+			"interest": max_interest,
+			"bank": best_bank,
+			"account": best_account
+		});
+		$scope.currentAccountDone = true;
+		$scope.currentAccountStarted = true;
+	}
+
+	$scope.currentAccountDone = false;
+	$scope.currentAccountStarted = false;
+
+	$scope.getCurrentAccountRecommendations = function() {
+		$scope.currentAccountDone = false;
+		$scope.currentAccountStarted = true;
+		$scope.getCurrentAccounts(function(data) {
+			var rows = [];
+			data.map(function(result) {
+				result.map(function(row) {
+					row.data._pageUrl = row.pageUrl;
+					rows.push(row.data);
+				});
+			});
+			$scope.bestCurrentAccount({ "data": rows });
+		});
 	}
 
 }]);

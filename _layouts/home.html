@@ -98,6 +98,37 @@
                                     </tr>
                                 </tbody>
                             </table>
+                        <div ng-show="currentAccountDone">
+							<h6>Recommended for you</h6>
+                            <table width="100%" class="recommended">
+                                <thead>
+                                    <tr>
+                                        <th>Bank</th>
+                                        <th>Account</th>
+                                        <th>Interest</th>
+                                        <th>Overdraft</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="card in bestCurrentAccounts">
+                                        <td>{{card.bank}}</td>
+                                        <td>{{card.account}}</td>
+                                        <td><strong>{{card.interest}}%</strong></td>
+                                        <td><span class="good">£{{card.overdraft}}</span></td>
+                                        <td>
+                                            <a href="#" class="button tiny primary">Switch</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table> 
+                        </div>
+                        <div ng-show="currentAccountStarted && !currentAccountDone">
+                        	<p><i class="fa fa-spin fa-spinner"></i> Getting recommendations...</p>
+                        </div>
+                        <div ng-show="!currentAccountStarted">
+                        	<button class="button primary" ng-click="getCurrentAccountRecommendations()">Get recommendations</button>
+                        </div>
 						</div>
 					</dd>
 					<dd>
