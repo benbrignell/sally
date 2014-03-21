@@ -1,6 +1,7 @@
 {% include header.html %} 
 <body ng-controller="Website" id="home">    
 {% include topbar.html %}
+{% raw %}
 
 	<section id="signIn" class="text-center" ng-show="page == 'login'">
 		<div class="row">
@@ -33,37 +34,36 @@
 								<h3 class="text-center">Total balance</h3>
 								£2,397
 							</div>
-							<table width="100%">
-								<thead>
-									<tr>
-										<th>Bank</th>
-										<th>Interest rate</th>
-										<th>Balance now</th>
-										<th>Balance in 6 months</th>
-										<th>&nbsp;</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Halifax</td>
-										<td>3%</td>
-										<td><strong>£300</strong></td>
-										<td><span class="bad">£320</span></td>
-									</tr>
-									<tr>
-										<td>Barclays</td>
-										<td>0.4%</td>
-										<td><strong>£634</strong></td>
-										<td><span class="bad">£320</span></td>
-									</tr>                           
-									<tr>
-										<td>HSBC</td>
-										<td>2%</td>
-										<td><strong>£0</strong></td>
-										<td><span class="bad">£320</span></td>
-									</tr>
-								</tbody>
-							</table> 
+							<table width="100%" class="account">
+                                <thead>
+                                    <tr>
+                                        <th>Bank</th>
+                                        <th>Interest rate</th>
+                                        <th>Balance now</th>
+                                        <th>Balance in 6 months</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Halifax</td>
+                                        <td>3%</td>
+                                        <td><strong>£300</strong></td>
+                                        <td><span class="bad">£320</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Barclays</td>
+                                        <td>0.4%</td>
+                                        <td><strong>£634</strong></td>
+                                        <td><span class="bad">£320</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>HSBC</td>
+                                        <td>2%</td>
+                                        <td><strong>£0</strong></td>
+                                        <td><span class="bad">£320</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
 						</div>
 					</dd>
 					<dd>
@@ -73,32 +73,63 @@
 								<h3 class="text-center">Total balance</h3>
 								-£4,032
 							</div>
-						<table width="100%">
-							<thead>
-								<tr>
-									<th>Bank</th>
-									<th>Interest rate</th>
-									<th>Balance</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>Halifax</td>
-									<td>3%</td>
-									<td><strong>£300</strong></td>
-								</tr>
-								<tr>
-									<td>Barclays</td>
-									<td>0.4%</td>
-									<td><strong>£634</strong></td>
-								</tr>                           
-								<tr>
-									<td>HSBC</td>
-									<td>2%</td>
-									<td><strong>£0</strong></td>
-								</tr>                            
-							</tbody>
-							</table> 
+							<table width="100%">
+								<thead>
+									<tr>
+										<th>Bank</th>
+										<th>Interest rate</th>
+										<th>Balance</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Halifax</td>
+										<td>3%</td>
+										<td><strong>£300</strong></td>
+									</tr>
+									<tr>
+										<td>Barclays</td>
+										<td>0.4%</td>
+										<td><strong>£634</strong></td>
+									</tr>                           
+									<tr>
+										<td>HSBC</td>
+										<td>2%</td>
+										<td><strong>£0</strong></td>
+									</tr>                            
+								</tbody>
+							</table>
+						<div ng-show="queryProgress >= 100">
+							<h6>Recommended for you</h6>
+                            <table width="100%" class="recommended">
+                                <thead>
+                                    <tr>
+                                        <th>Bank</th>
+                                        <th>Card</th>
+                                        <th>APR</th>
+                                        <th>Interest free purchase</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="card in recommendedCreditCards">
+                                        <td>{{card.bank}}</td>
+                                        <td>{{card.card}}</td>
+                                        <td><strong>{{card.apr}}%</strong></td>
+                                        <td><span class="good">{{card.purchase}} months</span></td>
+                                        <td>
+                                            <a href="button tiny">Switch</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table> 
+                        </div>
+                        <div ng-show="queryProgress < 100">
+                        	<p>Getting recommendations...</p>
+                        	<div class="progress success radius round">
+                        		<span class="meter" ng-style="{ width: queryProgress + '%' }"></span>
+                        	</div>
+                        </div>
 						</div>
 					</dd>
 					<dd>
@@ -152,4 +183,5 @@
 			<input type="hidden">
 		</div>
 	</section>
+{% endraw %}
 {% include footer.html %}
