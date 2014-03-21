@@ -126,8 +126,10 @@ var website = io.controller("Website", ["$scope", "safeApply", "importicleOauthS
 	}
 
 	$scope.queryProgress = 0;
+	$scope.creditCardStarted = false;
 
 	$scope.getCreditCard = function() {
+		$scope.creditCardStarted = true;
 		$scope.queryProgress = 0;
 		importio.query({
 			"connectorGuids": [
@@ -151,7 +153,73 @@ var website = io.controller("Website", ["$scope", "safeApply", "importicleOauthS
 			}
 		});
 	}
-	$scope.getCreditCard();
+
+	$scope.getCurrentAccountsLoading = false;
+
+	$scope.currentAccounts = {};
+
+	$scope.getCurrentAccountSize = function() {
+		return Object.keys($scope.currentAccounts).length;
+	}
+
+	$scope.getCurrentAccounts = function() {
+		$scope.getCurrentAccountsLoading = true;
+		$scope.currentAccounts = {};
+		$scope.currentAccount = false;
+		var prefix = "http://www.moneysupermarket.com/current-accounts/";
+		var suffixes = [
+			"Barclays",
+			"First Direct",
+			"Halifax",
+			"HSBC",
+			"Nationwide",
+			"Lloyds Bank",
+			"Natwest",
+			"RBS",
+			"Santander",
+			"The Co-operative",
+		];
+		var futures = [];
+		suffixes.map(function(suffix) {
+			futures.push((function(url, name) {
+				return importio.query({
+					"connectorGuids": [
+						"84890981-9821-4c4d-a936-da9145f4a99e"
+					],
+					"input": {
+						"webpage/url": prefix + suffix
+					}
+				}, {
+					"done": function(data) {
+						var processedData = [];
+						data.map(function(row) {
+							processedData.push(row.data);
+						});
+						if (processedData.length) {
+							$scope.currentAccounts[name] = processedData;
+							safeApply($scope);
+						}
+					}
+				});
+			})(prefix + suffix.replace(/ /g, "-").toLowerCase() + "/", suffix));
+		});
+		$.when.apply(null, futures).done(function() {
+			$scope.getCurrentAccountsLoading = false;
+			safeApply($scope);
+		});
+	}
+
+	$scope.currentAccount = false;
+
+	$scope.chooseAccount = function(account) {
+		$scope.currentAccount = account;
+	}
+
+	$scope.$watch("page", function(newValue) {
+		if (newValue == "link") {
+			$scope.getCurrentAccounts();
+		}
+	});
 
 }]);
 
