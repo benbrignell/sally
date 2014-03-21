@@ -1,4 +1,7 @@
-section#signIn {background: #d9f1e5; height: 300px;}
+li.name h1 i.fa {display: inline; font-size: 22px; color: #2e332e;}
+.top-bar {margin-bottom: 30px;}
+button.LIwPP {margin-top: 100px;}
+section#signIn {height: 300px; background: url(../img/sally-bank.png) top center no-repeat #f0f9f5; padding-top: 200px!important; margin-top: -30px!important;}
 
 a.dropdown {float: right; margin-top: -10px; margin-bottom: 0;}
 a.submit {display: block; width: 320px; margin-top: 30px auto;}
