@@ -1,3 +1,6 @@
+a.dropdown {float: right; margin-top: -10px; margin-bottom: 0;}
+a.submit {display: block; width: 320px; margin-top: 30px auto;}
+div.centre {margin: 0 auto; width: 320px;}
 h2 i.fa {display: inline;}
 
 dd i.fa {float: right;}
@@ -11,7 +14,14 @@ div.bad {background: #f9d1d7; font-size: 200%; font-weight: 700; border-color: #
 span.bad {color: #e21a35; font-weight: 700; }
 span.good {color: #10c77e; font-weight: 700;}
 
+.pricing-table .bullet-item {text-align: left;}
 
+li.bullet-item {clear: right; font-weight: 700;}
+li.bullet-item a.choose { float: right; background: #10c77e; padding: 4px 6px;; color: #fff; margin-top: -3px;
+-webkit-border-radius: 4px 4px 4px 4px;
+border-radius: 4px 4px 4px 4px;	
+	
+}
 .button i {padding-right: 1px;}
 .callout a.button {color: #fff}
 .callout i {display: inline;}
@@ -447,6 +457,7 @@ li.title {
 ul.pricing-table {
 	font-family:'Roboto',sans-serif;
 	font-weight:300;
+	text-align: left;
 }
 
 /* something is wrong here, investigate */
@@ -479,19 +490,23 @@ ul.free li.title {
 	background:#4caee2;
 }
 
-ul.free li.title + li,ul.free li.bullet-item:last-child {
+/*
+ul.free li.bullet-item:last-child {
 	background:#b7dff3;
 }
+*/
 
 ul.free li.bullet-item {
 	background:#dbeff9;
 	border-bottom:1px solid #b7dff3;
 }
 
+/*
 ul.free li.bullet-item:last-child {
 	font-weight:700;
 	font-size:110%;
 }
+*/
 
 /**** pro tier ****/
 ul.pro li.title {
