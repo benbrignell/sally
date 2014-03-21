@@ -3,9 +3,13 @@ h2 i.fa {display: inline;}
 dd i.fa {float: right;}
 dd a {font-weight: 700;}
 
+table.recommended thead {background: #66c796;}
+table.recommended tr.even, table.recommended tr.alt, table.recommended tr:nth-of-type(even) {background: #d9f1e5;}
+
 div.bad {background: #f9d1d7; font-size: 200%; font-weight: 700; border-color: #e21a35;}
 
 span.bad {color: #e21a35; font-weight: 700; }
+span.good {color: #10c77e; font-weight: 700;}
 
 
 .button i {padding-right: 1px;}
