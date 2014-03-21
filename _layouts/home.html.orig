@@ -28,8 +28,13 @@
 		</div>    
     </section> 
      
-	<section id="recommendation" ng-show="page == 'recommend'">
+<<<<<<< HEAD
+	<section id="recommendation">
 		<div class="range-slider round" data-slider>
+=======
+	<section id="recommendation" ng-show="page == 'recommend'">
+		<div class="range-slider" data-slider>
+>>>>>>> FETCH_HEAD
 			<span class="range-slider-handle"></span>
 			<span class="range-slider-active-segment"></span>
 			<input type="hidden">
