@@ -7,7 +7,7 @@
             <div class="large-12 columns">
                 <h1>Sally Bank</h1>
                 
-                <a class="button">Sign in <i class="fa fa-smile-o"></i> </a>
+                <a class="button" href="" ng-click="page = 'link'">Sign in <i class="fa fa-smile-o"></i> </a>
             </div>
         </div>
     </section>
@@ -18,6 +18,21 @@
 				Add accounts
 			</div>
 		</div>    
-    </section>
-
+    </section>  
+      
+    <section id="listAccounts" ng-show="page == 'list'">
+		<div class="row">
+			<div class="large-12 columns">
+				List accounts
+			</div>
+		</div>    
+    </section> 
+     
+	<section id="recommendation" ng-show="page == 'recommend'">
+		<div class="range-slider" data-slider>
+			<span class="range-slider-handle"></span>
+			<span class="range-slider-active-segment"></span>
+			<input type="hidden">
+		</div>
+	</section>
 {% include footer.html %}
