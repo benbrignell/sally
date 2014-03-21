@@ -138,7 +138,7 @@ var website = io.controller("Website", ["$scope", "safeApply", "importicleOauthS
 			"input": {
 				"cc_allcards": "cc_allcards#pg9"
 			},
-			"maxPages": 4
+			"maxPages": 2
 		}, {
 			"progress": function(percent) {
 				$scope.queryProgress = percent;
@@ -211,7 +211,8 @@ var website = io.controller("Website", ["$scope", "safeApply", "importicleOauthS
 
 	$scope.currentAccount = false;
 
-	$scope.chooseAccount = function(account) {
+	$scope.chooseAccount = function(account, name) {
+		account.bank = name;
 		$scope.currentAccount = account;
 	}
 
